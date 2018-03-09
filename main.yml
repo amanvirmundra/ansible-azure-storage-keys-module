@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Test with a message
+      azure_rm_storage_keys_utils:
+        resource_group: AZ532
+        name: az532diag394
+
