@@ -11,18 +11,19 @@ ANSIBLE_METADATA = {
 DOCUMENTATION = '''
 ---
 module: azure_rm_storage_keys
-
-short_description: This is my sample module
-
+short_description: Retrieve Azure Storage Account Keys
 version_added: "2.4"
-
 description:
-    - "This is my longer description explaining my sample module"
+    - "Retrive keys for a Storage Account"
 
 options:
-    resourcegroup_name:
+    resource_group:
         description:
             - This is the name of the resource group for which you want to retrieve Keys
+        required: true
+    name:
+        description:
+            - Name of the Storage Account instance.
         required: true
 
 extends_documentation_fragment:
@@ -32,6 +33,23 @@ author:
     - Amanvir Mundra (@amanvirmundra)
 '''
 
+EXAMPLES = '''
+- name: Get Storage account keys
+      azure_rm_storage_keys_utils:
+        resource_group: resource_group
+        name: account_name
+'''
+
+RETURN = '''
+key1:
+    description: Key1 for azure storage account
+    returned: always
+    type: str
+key2:
+    description: Key2 for azure storage account
+    returned: always
+    type: str
+'''
 
 from ansible.module_utils.azure_rm_common import AzureRMModuleBase
 try:
