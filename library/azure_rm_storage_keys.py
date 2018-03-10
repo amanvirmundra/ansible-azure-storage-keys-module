@@ -18,8 +18,7 @@ def run_module():
         client_id=dict(type='str', required=True),
         secret=dict(type='str', required=True),
         tenant=dict(type='str', required=True),
-        subscription_id=dict(type='str', required=True),
-        new=dict(type='bool', required=False, default=False)
+        subscription_id=dict(type='str', required=True)
     )
     
     result = dict(
@@ -51,9 +50,6 @@ def run_module():
 
     result['Key1'] = storage_keys['key1']
     result['Key2'] = storage_keys['key2']
-
-    if module.params['name'] == 'fail me':
-        module.fail_json(msg='You requested this to fail', **result)
 
     module.exit_json(**result)
 
