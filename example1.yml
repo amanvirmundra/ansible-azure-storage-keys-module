@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Get Storage account keys
+      azure_rm_storageaccount_keys:
+        resource_group: <Resource Group Name>
+        name: <Storage Account Name>
+        client_id: "<Client Id>"
+        secret: "<Secret>"
+        tenant: "<Tenant>"
+        subscription_id: "<Subscription Id>"
+

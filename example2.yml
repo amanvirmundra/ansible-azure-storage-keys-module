@@ -1,13 +1,23 @@
 ---
 - hosts: localhost
   gather_facts: no
+  vars:
+    - resource_group: MyResourceGroup
+    - storage_account: TestAccount
+  
   tasks:
-    - name: Get Storage account keys
-      azure_rm_storage_keys:
-        resource_group: <Resource Group Name>
-        name: <Storage Account Name>
-        client_id: "<Client Id>"
-        secret: "<Secret>"
-        tenant: "<Tenant>"
-        subscription_id: "<Subscription Id>"
+    - name: Create new storage account
+      azure_rm_storageaccount:
+          resource_group: "{{ resource_group }}" 
+          name: "{{ storage_account }}"
+          account_type: Standard_LRS
+    
+    - name: Get storage account keys
+      azure_rm_storageaccountkeys_facts:
+          resource_group: "{{ resource_group }}" 
+          name: "{{ storage_account }}"
+      register: output
 
+    - name: Assert that the result has Keys 
+      assert: 
+          that: output['keys'] | length > 0

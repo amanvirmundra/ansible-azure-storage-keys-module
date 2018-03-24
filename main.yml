@@ -1,9 +1,0 @@
----
-- hosts: localhost
-  gather_facts: no
-  tasks:
-    - name: Get Storage account keys
-      azure_rm_storage_keys_utils:
-        resource_group: AZ532
-        name: az532diag394
-
