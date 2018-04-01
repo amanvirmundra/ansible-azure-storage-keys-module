@@ -10,7 +10,7 @@
   <li>
     <h3><strong>azure_rm_storageaccountkeys_facts.py</strong></h3>
     <p>
-      This implementation follows the same pattern as other Azure modules built for Ansible. It uses base functionality of azure_rm_common.py to handle common functionality like authentication, error handling, exceptions and intantiation of resource clients.
+      This implementation follows the same pattern as other Azure modules built for Ansible. It uses base functionality of azure_rm_common.py to handle common functionality like authentication, error handling, exceptions and instantiation of resource clients.
     </p>
   </li>
 </ol>
